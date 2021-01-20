@@ -18,21 +18,17 @@ export class DisplaylistComponent implements OnInit {
   enterV = '';
   clicked = false;
   @ViewChild(DirectiveComponent) idemPlaceHolder : DirectiveComponent;
-  constructor(private componentFactoryResolver: ComponentFactoryResolver) {
-    setTimeout(() => {
-      this.allow = true;
-  }, 2000);
+  constructor(private componentFactoryResolver: ComponentFactoryResolver) {}
 
-   }
-
-   onAllow(){
-     this.clicked = true;
-    this.allow = false;
-   }
+  //  onAllow(){
+  //    this.clicked = true;
+  //   this.allow = false;
+  //  }
    
   ngOnInit() {
   }
 
+  // LOOK AT THIS FUNCATION TO SEE HOW I CREATE A FACTORY
   private showIdems(Idem: IdemComponent){
       const IdemComponentFactory = this.componentFactoryResolver.resolveComponentFactory(IdemComponent);
       const hostViewContainerRef = this.idemPlaceHolder.viewContainerRef;
