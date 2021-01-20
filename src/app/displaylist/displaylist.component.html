@@ -1,0 +1,23 @@
+
+
+<p>
+  displaylist works!
+</p>
+<button [disabled]="!allow" (click)="onAllow()">button</button>
+<p *ngIf="clicked; else noDisplay">displaylist {{ allow}}</p>
+<ng-template #noDisplay>
+<p>
+  No clicks yet!!
+
+</p>
+
+</ng-template>
+
+
+<p [innerText] ="allow"></p>
+
+
+<ng-template idemPlaceHolder>
+
+
+</ng-template>
