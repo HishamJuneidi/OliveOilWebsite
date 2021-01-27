@@ -1,0 +1,31 @@
+{
+    "itemList": [
+        {
+            "title": "Olive Oil",
+            "picture": "assets/olive_oil.jpg",
+            "description": "This is the description for Olive Oil. Finest Quality, Unbeatable Prices!",
+            "price": 10000000.00
+        },
+        {
+            "title": "Olive Oil 2",
+            "picture": "assets/olive_oil.jpg",
+            "description": "This is the description for Olive Oil 2: Electric Boogaloo. Same Oil, Different Prices!",
+            "price": 22.00
+        },
+
+        {
+            "title": "Olive Oil 3",
+            "picture": "assets/olive_oil.jpg",
+            "description": "This is the description for Olive Oil 3. Two's a couple, Three's Company!",
+            "price": 33.00
+        },
+
+        {
+            "title": "Olive Oil 4",
+            "picture": "assets/olive_oil.jpg",
+            "description": "This is the description for Olive Oil 4. Four on the floor, let's get some more oil!",
+            "price": 44.00
+        }
+    ]
+
+}

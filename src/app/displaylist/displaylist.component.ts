@@ -1,7 +1,9 @@
 import { Component, OnInit, ComponentFactoryResolver, ViewChild } from '@angular/core';
 import { Directive, ViewContainerRef } from '@angular/core';
-import { IdemComponent } from '../idem/idem.component';
 import { DirectiveComponent} from '../directive/directive.component';
+import { ItemListService } from '../service/item-list/item-list.service';
+import { ItemListData } from '../model/item.list.data';
+import { ItemData } from '../model/item.model';
 
 @Component({
   selector: 'app-displaylist',
@@ -12,30 +14,17 @@ import { DirectiveComponent} from '../directive/directive.component';
 
 
 
-export class DisplaylistComponent implements OnInit {
+export class DisplayListComponent implements OnInit {
 
-  allow = false;
-  enterV = '';
-  clicked = false;
-  @ViewChild(DirectiveComponent) idemPlaceHolder : DirectiveComponent;
-  constructor(private componentFactoryResolver: ComponentFactoryResolver) {}
+  itemList: ItemData[];
 
-  //  onAllow(){
-  //    this.clicked = true;
-  //   this.allow = false;
-  //  }
+  constructor(private listServ: ItemListService) {}
+
    
   ngOnInit() {
+    this.listServ.getList().subscribe((data) => {
+      this.itemList = data.itemList;
+    });
   }
-
-  // LOOK AT THIS FUNCATION TO SEE HOW I CREATE A FACTORY
-  private showIdems(Idem: IdemComponent){
-      const IdemComponentFactory = this.componentFactoryResolver.resolveComponentFactory(IdemComponent);
-      const hostViewContainerRef = this.idemPlaceHolder.viewContainerRef;
-      hostViewContainerRef.clear();
-
-      const componentRef = hostViewContainerRef.createComponent(IdemComponentFactory);
-      //componentRef.instance
-    }
 
 }

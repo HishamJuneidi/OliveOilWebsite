@@ -6,17 +6,20 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 
 import { FormsModule } from '@angular/forms';
-import { DisplaylistComponent } from './displaylist/displaylist.component';
+import { DisplayListComponent } from './displaylist/displaylist.component';
 
-import { IdemComponent } from './idem/idem.component';
-import { DirectiveComponent } from './directive/directive.component';            // Added this  for ngmodule to work
+import { DirectiveComponent } from './directive/directive.component';
+import { ItemDirective } from './directives/item.directive';            // Added this  for ngmodule to work
+import { ItemComponent } from './item/item.component';
+
+import { HttpClientModule } from '@angular/common/http';
 
 
 const routes: Routes = [
   { path: '', component: HomeComponent },              // Added this
-  { path: '', component: IdemComponent },           // Added this
-  { path: '', component: DisplaylistComponent },           // Added this
-  { path: '', component: DirectiveComponent }           // Added this
+  { path: '', component: DisplayListComponent },           // Added this
+  { path: '', component: DirectiveComponent },           // Added this
+  { path: 'Catalogue', component: DisplayListComponent}
   
 ];
 
@@ -24,14 +27,17 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     HomeComponent,
-    DisplaylistComponent,
-    IdemComponent,
-    DirectiveComponent
+    DisplayListComponent,
+    DirectiveComponent,
+    ItemDirective,
+    ItemComponent
    
   ],
   imports: [
     BrowserModule,
-    [RouterModule.forRoot(routes)], FormsModule                      // Added this
+    [RouterModule.forRoot(routes)], 
+    FormsModule,                      // Added this
+    HttpClientModule,
     
   ],
   exports: [RouterModule],                               // Added this
