@@ -2,7 +2,7 @@ const express = require('express');
 
 function createRouter(db) {
   const router = express.Router();
-  const owner = '';
+  const owner = req.user.email;
 
   // the routes are defined here
 

@@ -4,6 +4,12 @@ const bodyParser = require('body-parser');
 const mysql = require('mysql');
 const events = require('./Item');
 
+
+const bearerToken = require('express-bearer-token');
+const oktaAuth = require('./auth');
+
+
+
 const connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'Hisham',
@@ -13,11 +19,14 @@ const connection = mysql.createConnection({
 
 connection.connect();
 
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 8081;
 
-const app = express()
+
+  const app = express()
   .use(cors())
   .use(bodyParser.json())
+  .use(bearerToken())
+  .use(oktaAuth)
   .use(events(connection));
 
 app.listen(port, () => {
